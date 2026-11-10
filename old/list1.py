@@ -1,5 +1,6 @@
 import random
 
+
 CLASSES = [
 
     ("Grupa_1", "Matematyka"), ("Grupa_1", "Matematyka"), ("Grupa_1", "Fizyka"),
@@ -109,6 +110,7 @@ def mutate(individual, mutation_rate):
             individual[i] = (random.choice(TIMESLOTS), random.choice(ROOMS))
     return individual
 
+
 def print_schedule(individual):
 
     # mapping one-dim chromosome back to visible table
@@ -176,6 +178,8 @@ def run_genetic_algorithm(pop_size, generations, crossover_rate, mutation_rate):
 
             # crossing
             c1, c2 = single_point_crossover(p1, p2, crossover_rate)
+            print("parent 1", p1)
+            print("parent2 ", p2)
 
             # mutation
             c1 = mutate(c1, mutation_rate)
@@ -217,3 +221,4 @@ for i, params in enumerate(experiments, 1):
 
 print("\n Plan zajęć dla najelpszego rozwiązania")
 print_schedule(best_solution)
+
